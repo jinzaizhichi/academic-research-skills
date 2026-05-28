@@ -67,7 +67,9 @@ Respectful disagreement with the reviewer's suggestion on methodological or theo
 Per Schema 11 v3.11, each row of the Revision Tracking Table may carry an extracted commitment list. Each commitment has a `fulfillment_status` chosen from:
 
 ### fulfilled
-The commitment was addressed. Required evidence (per `required_evidence_type`) is present at `revision_location` and substantively addresses the `commitment_text`.
+The commitment was addressed. Required evidence (per `required_evidence_type`) is present and substantively addresses the `commitment_text`. The verification site depends on the evidence type:
+- For the six **manuscript-evidence** types (`new_section` / `new_figure` / `new_table` / `new_citation` / `methods_paragraph` / `discussion_paragraph`), the evidence lives at `revision_location` in the revised manuscript.
+- For `acknowledgment_only`, the evidence lives in the Response to Reviewers (Schema 8); the manuscript does NOT need to change. `revision_location` may be empty or point to the response letter.
 
 ### partial
 Evidence exists but does not fully address the commitment. Example: reviewer asked for ablation on dataset X; revision adds ablation on dataset Y. Author must populate `unfulfilled_rationale` with the gap explanation.
